@@ -52,6 +52,7 @@ install-flatpak-system-deps:
 run-build:
 	flatpak-builder --repo=tutorial-repo dictionary org.gnome.Dictionary.json
 
+
 add-new-repository:
 	flatpak --user remote-add --no-gpg-verify --if-not-exists tutorial-repo tutorial-repo
 
@@ -66,3 +67,9 @@ run-app:
 	flatpak run org.gnome.Dictionary
 
 all: run-build add-new-repository install-the-app check-app-installed run-app
+
+step1: run-build
+step2: add-new-repository
+step3: install-the-app
+step4: check-app-installed
+step5: run-app
