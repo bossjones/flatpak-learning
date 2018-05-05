@@ -46,10 +46,10 @@ install-gnome-2.6-runtime:
 
 delete-remotes:
 	flatpak remotes
-	flatpak --user remote-delete --force gnome
-	flatpak --user remote-delete --force flathub
-	flatpak remote-delete --force gnome
-	flatpak remote-delete --force flathub
+	flatpak --user remote-delete --force gnome || true
+	flatpak --user remote-delete --force flathub || true
+	flatpak remote-delete --force gnome || true
+	flatpak remote-delete --force flathub || true
 
 install-flatpak-system-deps:
 	sudo dnf install flatpak-devel flatpak-builder flatpak-runtime-config wget git bzip2 elfutils make ostree -y
@@ -88,3 +88,6 @@ step2: add-new-repository
 step3: install-the-app
 step4: check-app-installed
 step5: run-app
+
+# If you want to do everything in one step, do this
+full-setup: install-flatpak-system-deps delet-remotes remote-add install-runtime install-gnome-2.6-runtime step1 step2 step3 step4 step5
