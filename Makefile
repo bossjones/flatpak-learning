@@ -72,8 +72,11 @@ install-the-app:
 	flatpak -v --user install tutorial-repo org.gnome.Dictionary
 
 check-app-installed:
+	echo -e "\n"
 	flatpak info org.gnome.Dictionary
+	echo -e "\n"
 	flatpak info org.gnome.Dictionary.Locale
+	echo -e "\n"
 
 run-app:
 	flatpak run org.gnome.Dictionary
