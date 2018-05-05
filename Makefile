@@ -64,12 +64,12 @@ run-build:
 
 
 add-new-repository:
-	flatpak --user remote-add --no-gpg-verify --if-not-exists tutorial-repo tutorial-repo
+	flatpak -v --user remote-add --no-gpg-verify --if-not-exists tutorial-repo tutorial-repo
 # display contants of tutorial-repo dir
 	tree tutorial-repo
 
 install-the-app:
-	flatpak --user install tutorial-repo org.gnome.Dictionary
+	flatpak -v --user install tutorial-repo org.gnome.Dictionary
 
 check-app-installed:
 	flatpak info org.gnome.Dictionary
