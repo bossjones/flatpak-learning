@@ -60,10 +60,13 @@ install-flatpak-system-deps:
 
 run-build:
 	flatpak-builder --repo=tutorial-repo dictionary org.gnome.Dictionary.json
+# display contents of dictonary dir
 
 
 add-new-repository:
 	flatpak --user remote-add --no-gpg-verify --if-not-exists tutorial-repo tutorial-repo
+# display contants of tutorial-repo dir
+	tree tutorial-repo
 
 install-the-app:
 	flatpak --user install tutorial-repo org.gnome.Dictionary
