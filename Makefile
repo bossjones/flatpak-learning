@@ -35,6 +35,15 @@ install-runtime:
 	flatpak remote-list --show-details
 	flatpak list --runtime --show-details
 
+install-gnome-2.6-runtime:
+	flatpak --user install gnome org.gnome.Platform//3.26 || true
+	flatpak --user install gnome org.gnome.Sdk//3.26 || true
+	flatpak remotes
+	flatpak --user remote-list --show-details
+	flatpak --user list --runtime --show-details
+	flatpak remote-list --show-details
+	flatpak list --runtime --show-details
+
 delete-remotes:
 	flatpak remotes
 	flatpak --user remote-delete --force gnome
